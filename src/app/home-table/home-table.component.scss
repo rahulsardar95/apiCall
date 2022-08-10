@@ -1,0 +1,90 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+.selectserch {
+  width: 200px;
+
+}
+
+// .example-section {
+//   margin-top: 30px;
+
+// }
+
+// // .box {
+// //   border: solid 2px red;
+// //   background-color: red;
+// //   border-radius: 50%;
+//   // align-items: center;
+//   // justify-content: center;
+//   // padding: 7px;
+
+
+// }
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+// .repeat{
+//   width: 60px;
+//   height: 60px;
+// }
+.example-section1{
+  margin-left: 50px;
+}
+
+.my-2 {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  margin-left: 20px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+
+// .rbox {
+//   width: 99%;
+
+//   top: 368px;
+//   background-color: #F6F8FB;
+//   border-radius: 10px;
+// }
+
+.size
+{
+  width: 20%;
+}
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 0%), 0px 0px 0px 0px rgb(0 0 0 / 0%), 0px 1px 3px 0px rgb(0 0 0 / 0%);
+}
+
+.nav-link
+{
+  color: black;
+}
+.nav-link:hover
+{
+  color: black;
+}
+
+.table1 th,td
+{
+
+  width: 10% !important;
+}
+
+

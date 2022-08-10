@@ -1,0 +1,47 @@
+
+
+
+  <mat-toolbar  style="background-color: #E3F2F1;">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <img src="../assets/logo 1.png" style="height: 55px;" (click)="sidenav.toggle()">
+      </button>
+      
+      <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon style="color: black;">control_camera</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <i class="bi bi-bell-fill" style="color: black;"></i>
+
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <i class="bi bi-exclamation-circle-fill" style="color: black;"></i>  
+      </button>
+      <p style="color: black; font-size:14px;">John deo</p>
+        
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <img src="../../assets/profile.jpg" alt="" width="40px" height="40px">
+      </button>
+     
+    </mat-toolbar-row>
+  
+  </mat-toolbar>
+        
+  
+   <mat-sidenav-container >
+    <mat-sidenav #sidenav class="sideNav">
+      <mat-nav-list >
+  
+        <a mat-list-item routerLink="bestseller">Finance and Account</a>
+       
+  
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class=" style" >
+  
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

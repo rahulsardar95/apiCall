@@ -1,0 +1,168 @@
+<div class="container p-0">
+  <mat-tab-group>
+    <mat-tab label="Transaction List"> Content 1 </mat-tab>
+    <mat-tab label="Invoices"> Content 2 </mat-tab>
+    <mat-tab label="Payments"> Content 3 </mat-tab>
+    <mat-tab label="Credit Notes"> Content 4 </mat-tab>
+    <mat-tab label="Bond Payments"> Content 5 </mat-tab>
+
+    <mat-tab label="Age Debtors"> 
+     
+  <div class="row rbox m-4">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 selectserch">
+      <label for="">Child</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Select an child</mat-label>
+        <mat-select (selectionChange)="filter1($event)">
+          <mat-option>None</mat-option>
+          <mat-option value="deas">deas</mat-option>
+          <mat-option value="des">des</mat-option>
+          <mat-option value="deap">deap</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 selectserch">
+      <label for="">Payee</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Select payee</mat-label>
+        <mat-select (selectionChange)="filter2($event)">
+          <mat-option>None</mat-option>
+          <mat-option value="Joen">Joen</mat-option>
+          <mat-option value="hi">hi</mat-option>
+          <mat-option value="bruce">bruce</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-lg-3 col-md-3  col-sm-3 col-xs-3">
+
+      <section class="example-section">
+        <mat-checkbox class="example-margin">Include those parents who are <p>in credit</p>
+        </mat-checkbox>
+      </section>
+
+    </div>
+  <div class="col-lg-3 col-md-3  col-sm-3 col-xs-3">
+    <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 m-auto">
+      <button type="button" class="btn btn-success">Success</button>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4m-auto my-2">
+      <button class="box m-auto"><i class="bi bi-arrow-repeat"></i></button>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 m-auto">
+      <button (click)="changeArrow()"><mat-icon >{{arrow}}</mat-icon></button>
+    </div>
+  </div>
+  </div>
+</div>
+
+  <div class="row" *ngIf="show">
+    <div class="col-lg-3 col-md-3 col-sm-6">
+      <label for="">Start Date</label>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label></mat-label>
+        <input type="date" matInput  value="Sushi">
+      </mat-form-field>
+    </div>
+   
+    <div class="col-lg-3 col-md-3 col-sm-6">
+      <label for="">End date</label>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label></mat-label>
+        <input type="date" matInput  value="Sushi">
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+
+            <mat-checkbox class="example-margin" [(ngModel)]="accounts">Include $0 accounts</mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="records">Winz records</mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="Month">Monthly</mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="week">Weekly</mat-checkbox>  
+    </div>
+  </div>
+
+
+
+
+
+  <div style="margin-top: 10px;">
+ 
+
+    <div class="w-100">
+      <table mat-table [dataSource]="dataSource" matSort class="table1 m-0 p-0">
+
+      
+        <ng-container matColumnDef="payee">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Payee</th>
+          <td mat-cell *matCellDef="let row"> {{row.payee}} </td>
+        </ng-container>
+
+       
+        <ng-container matColumnDef="child">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> child</th>
+          <td mat-cell *matCellDef="let row"> {{row.child}} </td>
+        </ng-container>
+        
+        
+        <ng-container matColumnDef="threeWeek">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>3 Week</th>
+          <td mat-cell *matCellDef="let row"> {{row.threeWeek | currency}} </td>
+        </ng-container>
+
+       
+        <ng-container matColumnDef="twoWeek">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 2 Week</th>
+          <td mat-cell *matCellDef="let row"> {{row.twoWeek | currency}} </td>
+        </ng-container>
+        
+        
+        <ng-container matColumnDef="OneWeek">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>1 Week</th>
+          <td mat-cell *matCellDef="let row"> {{row.OneWeek | currency}} </td>
+        </ng-container>
+
+       
+        <ng-container matColumnDef="Current">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Current </th>
+          <td mat-cell *matCellDef="let row"> {{row.Current | currency}} </td>
+        </ng-container>
+        
+        
+        <ng-container matColumnDef="PendingAmount">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Pending Amount</th>
+          <td mat-cell *matCellDef="let row"> {{row.PendingAmuont | currency}} </td>
+        </ng-container>
+
+       
+        <ng-container matColumnDef="OverPayment">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Over Payment</th>
+          <td mat-cell *matCellDef="let row"> {{row.OverPayment | currency}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="PendingCreditNote">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Pending Credit Note</th>
+          <td mat-cell *matCellDef="let row"> {{row.PendingCreditNote | currency}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="TotalPendingAmount">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Pending Amount</th>
+          <td mat-cell *matCellDef="let row"> {{row.TotalPendingAmount | currency}} </td>
+        </ng-container>
+       
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[10, 20, 50, 80, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+  </div>
+    </mat-tab>
+  </mat-tab-group>
+
+
+</div>
